@@ -133,13 +133,14 @@ export default {
         const ownerPlace = {
           email: this.form.email,
           password: this.form.password,
+          address: this.form.address,
+          fullName: this.form.name,
+          phone: this.form.phone,
           role: 2,
           ownerPlace: {
             address: this.form.address,
-            phone: this.form.phone,
             stk: this.form.stk,
-            bankSymbol: this.form.bankSymbol,
-            fullName: this.form.name
+            bankSymbol: this.form.bankSymbol
           }
         }
         await register(ownerPlace)

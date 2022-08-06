@@ -134,9 +134,9 @@
                   <p>Service</p>
                   <el-row v-for="(item, i) in form.services" :key="i" :gutter="12">
                     <el-col :xs="7" :sm="7" :md="7" :lg="7">
-                      <el-form-item label="Thời gian">
+                      <!-- <el-form-item label="Thời gian">
                         <el-input v-model="form.services[i].timeStart" />
-                      </el-form-item>
+                      </el-form-item> -->
                     </el-col>
                     <el-col :xs="7" :sm="7" :md="7" :lg="7">
                       <el-form-item label="Giá tiền">
