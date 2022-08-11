@@ -11,3 +11,11 @@ export function getReportOwner() {
 export function getOrderAdmin() {
   return request.get('admin/order')
 }
+
+export function acceptReportOrder(id) {
+  return request.put(`admin/order/report-order/accept/${id}`)
+}
+
+export function rejectReportOrder(id) {
+  return request.put(`admin/order/report-order/reject/${id}`)
+}

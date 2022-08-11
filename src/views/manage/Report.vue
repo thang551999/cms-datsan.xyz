@@ -1,6 +1,10 @@
 <template lang="html">
   <div>
-    <v-header :has-button="false" title-icon="user" title-text="Quản lý khiếu nại đơn hàng" />
+    <v-header
+      :has-button="false"
+      title-icon="user"
+      title-text="Quản lý khiếu nại đơn hàng"
+    />
     <div class="content-main-container">
       <div class="bg-white">
         <v-table
@@ -13,9 +17,18 @@
         >
           <template #action="{ row }">
             <div class="text-center">
-              <el-button v-if="row.approved" type="danger" icon="el-icon-minus" circle @click="disableAdmin(row.id)" />
-              <el-button v-else type="primary" icon="el-icon-check" circle @click="activeAdmin(row.id)" />
-              <el-button type="success" icon="el-icon-edit" circle />
+              <el-button
+                type="danger"
+                icon="el-icon-minus"
+                circle
+                @click="handleRejectReportOrder(row.id)"
+              />
+              <el-button
+                type="primary"
+                icon="el-icon-check"
+                circle
+                @click="handleAcceptReportOrder(row.id)"
+              />
             </div>
           </template>
         </v-table>
@@ -24,7 +37,7 @@
   </div>
 </template>
 <script>
-import { getReportOwner } from '@/apis/order'
+import { getReportOwner, acceptReportOrder, rejectReportOrder } from '@/apis/order'
 
 export default {
   data() {
@@ -61,6 +74,11 @@ export default {
           prop: 'content',
           label: 'Nội dung khiếu nại',
           minWidth: '25'
+        },
+          {
+          prop: 'action',
+          label: this.$t('label.action'),
+          minWidth: '15'
         }
       ]
     }
@@ -86,6 +104,12 @@ export default {
     async changePage(page) {
       this.page = page
       await this.getUserList()
+    },
+    async handleRejectReportOrder(id) {
+      await rejectReportOrder(id)
+    },
+    async handleAcceptReportOrder(id) {
+      await acceptReportOrder(id)
     }
   }
 }
