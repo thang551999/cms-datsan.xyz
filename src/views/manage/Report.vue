@@ -89,6 +89,7 @@ export default {
       const reports = res.data.map((report) => {
         console.log(report)
         return {
+          id: report.id,
           content: report.content,
           orderId: report.order.id,
           email: report.order.customer?.userInfo.email,
