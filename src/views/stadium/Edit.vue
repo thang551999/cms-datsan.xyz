@@ -10,10 +10,26 @@
               <div class="box-shadow-1 bordered-5 bg--white pd-1-em">
                 <el-row :gutter="12">
                   <!-- Stadium type -->
-                  <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="flex">
-                    <el-form-item label="Loại sân" prop="typePlace" class="flex-1">
+                  <el-col
+                    :xs="24"
+                    :sm="24"
+                    :md="12"
+                    :lg="12"
+                    :xl="12"
+                    class="flex"
+                  >
+                    <el-form-item
+                      label="Loại sân"
+                      prop="typePlace"
+                      class="flex-1"
+                    >
                       <el-select v-model="form.typePlace" class="w-100">
-                        <el-option v-for="item in type" :key="item.id" :label="item.name" :value="item.id" />
+                        <el-option
+                          v-for="item in type"
+                          :key="item.id"
+                          :label="item.name"
+                          :value="item.id"
+                        />
                       </el-select>
                     </el-form-item>
                   </el-col>
@@ -81,17 +97,29 @@
                 </el-row>
 
                 <!-- More infor -->
-                <el-form-item label="Thời gian giữa các trận" prop="timeDistance">
-                  <el-input v-model="form.timeDistance" class="w-100" maxlength="10" show-word-limit />
+                <el-form-item
+                  label="Thời gian giữa các trận"
+                  prop="timeDistance"
+                >
+                  <el-input
+                    v-model="form.timeDistance"
+                    class="w-100"
+                    maxlength="10"
+                    show-word-limit
+                  />
                 </el-form-item>
 
                 <div class="box-shadow-1 bordered-5 bg--white pd-1-em mb-1-em">
                   <p>Service</p>
-                  <el-row v-for="(item, i) in form.services" :key="i" :gutter="12">
+                  <el-row
+                    v-for="(item, i) in form.services"
+                    :key="i"
+                    :gutter="12"
+                  >
                     <el-col :xs="7" :sm="7" :md="7" :lg="7">
-                      <el-form-item label="Thời gian">
+                      <!-- <el-form-item label="Thời gian">
                         <el-input v-model="form.services[i].timeStart" />
-                      </el-form-item>
+                      </el-form-item> -->
                     </el-col>
                     <el-col :xs="7" :sm="7" :md="7" :lg="7">
                       <el-form-item label="Giá tiền">
@@ -112,17 +140,34 @@
                     </el-col>
                   </el-row>
 
-                  <el-button type="primary" size="small" @click="form.services.push({})">Thêm mới</el-button>
+                  <el-button
+                    type="primary"
+                    size="small"
+                    @click="form.services.push({})"
+                  >Thêm mới</el-button>
                 </div>
 
                 <!-- Rent price -->
                 <el-form-item label="Giá thuê" prop="priceMin">
-                  <el-input v-model="form.priceMin" class="w-100" maxlength="12" show-word-limit />
+                  <el-input
+                    v-model="form.priceMin"
+                    class="w-100"
+                    maxlength="12"
+                    show-word-limit
+                  />
                 </el-form-item>
 
                 <!-- Limit people -->
-                <el-form-item label="Số người tối đa trên sân" prop="limitUsers">
-                  <el-input v-model="form.limitUsers" class="w-100" maxlength="10" show-word-limit />
+                <el-form-item
+                  label="Số người tối đa trên sân"
+                  prop="limitUsers"
+                >
+                  <el-input
+                    v-model="form.limitUsers"
+                    class="w-100"
+                    maxlength="10"
+                    show-word-limit
+                  />
                 </el-form-item>
               </div>
             </el-col>
@@ -134,7 +179,7 @@
                 <div>
                   <el-upload
                     class="upload-demo"
-                    action="https://apis.datsan.xyz/upload/s3"
+                    action="https://api.datsan.xyz/upload/s3"
                     :file-list="fileList"
                     list-type="picture"
                     :auto-upload="true"
@@ -142,8 +187,13 @@
                     :multiple="true"
                     :limit="1"
                   >
-                    <el-button size="small" type="primary">Click to upload</el-button>
-                    <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
+                    <el-button
+                      size="small"
+                      type="primary"
+                    >Click to upload</el-button>
+                    <div slot="tip" class="el-upload__tip">
+                      jpg/png files with a size less than 500kb
+                    </div>
                   </el-upload>
                 </div>
               </div>
@@ -151,7 +201,11 @@
               <!-- Time Gold  -->
               <div class="box-shadow-1 bordered-5 bg--white pd-1-em mb-1-em">
                 <p>Giờ vàng</p>
-                <el-row v-for="(item, i) in form.timeGold" :key="i" :gutter="12">
+                <el-row
+                  v-for="(item, i) in form.timeGold"
+                  :key="i"
+                  :gutter="12"
+                >
                   <el-col :xs="11" :sm="11" :md="11" :lg="11">
                     <el-form-item label="Thời gian">
                       <el-time-select
@@ -177,14 +231,25 @@
                   </el-col>
                 </el-row>
 
-                <el-button type="primary" size="small" @click="form.timeGold.push({})">Thêm mới</el-button>
+                <el-button
+                  type="primary"
+                  size="small"
+                  @click="form.timeGold.push({})"
+                >Thêm mới</el-button>
               </div>
             </el-col>
           </el-row>
         </el-form>
         <div class="text-right mt-1-em">
-          <el-button class="btn--orange btn" icon="el-icon-circle-close">Cancel</el-button>
-          <el-button class="btn--green btn" icon="el-icon-circle-check" @click="updatePlace">Save</el-button>
+          <el-button
+            class="btn--orange btn"
+            icon="el-icon-circle-close"
+          >Cancel</el-button>
+          <el-button
+            class="btn--green btn"
+            icon="el-icon-circle-check"
+            @click="updatePlace"
+          >Save</el-button>
         </div>
       </section>
     </main>
@@ -205,7 +270,7 @@
 </template>
 
 <script>
-import { getPlaceType, getPlaceById, updatePlace } from '@/apis/place'
+import { getPlaceType, getPlaceById, updatePlace, deleteService, deleteTimeGold } from '@/apis/place'
 export default {
   data() {
     return {
@@ -234,15 +299,65 @@ export default {
         typePlace: null
       },
       rules: {
-        name: [{ required: true, message: 'Tên sân không được để trống', trigger: 'blur' }],
-        address: [{ required: true, message: 'Địa chỉ không được để trống', trigger: 'blur' }],
-        timeOpen: [{ required: true, message: 'Thời gian mở cửa không được để trống', trigger: 'blur' }],
-        timeClose: [{ required: true, message: 'Thời gian đóng cửa không được để trống', trigger: 'blur' }],
-        timeDistance: [{ required: true, message: 'Khoảng cách không được để trống', trigger: 'blur' }],
-        limitUsers: [{ required: true, message: 'Số người tối đa trên sân không được để trống', trigger: 'blur' }],
-        typePlace: [{ required: true, message: 'Hãy chọn loại sân', trigger: 'blur' }],
-        priceMin: [{ required: true, message: 'Giá thuê không được bỏ trống', trigger: 'blur' }],
-        description: [{ required: true, message: 'Mô tả không được bỏ trống', trigger: 'blur' }]
+        name: [
+          {
+            required: true,
+            message: 'Tên sân không được để trống',
+            trigger: 'blur'
+          }
+        ],
+        address: [
+          {
+            required: true,
+            message: 'Địa chỉ không được để trống',
+            trigger: 'blur'
+          }
+        ],
+        timeOpen: [
+          {
+            required: true,
+            message: 'Thời gian mở cửa không được để trống',
+            trigger: 'blur'
+          }
+        ],
+        timeClose: [
+          {
+            required: true,
+            message: 'Thời gian đóng cửa không được để trống',
+            trigger: 'blur'
+          }
+        ],
+        timeDistance: [
+          {
+            required: true,
+            message: 'Khoảng cách không được để trống',
+            trigger: 'blur'
+          }
+        ],
+        limitUsers: [
+          {
+            required: true,
+            message: 'Số người tối đa trên sân không được để trống',
+            trigger: 'blur'
+          }
+        ],
+        typePlace: [
+          { required: true, message: 'Hãy chọn loại sân', trigger: 'blur' }
+        ],
+        priceMin: [
+          {
+            required: true,
+            message: 'Giá thuê không được bỏ trống',
+            trigger: 'blur'
+          }
+        ],
+        description: [
+          {
+            required: true,
+            message: 'Mô tả không được bỏ trống',
+            trigger: 'blur'
+          }
+        ]
       }
     }
   },
@@ -282,12 +397,20 @@ export default {
       this.fileList.push(file.url)
     },
 
-    deleteService(index) {
-      this.form.services.splice(index, 1)
+    async deleteService(index) {
+      const [service] = this.form.services.splice(index, 1)
+      console.log(service)
+      if (service.id) {
+        await deleteService(service.id)
+      }
     },
 
-    deleteTimeGold(index) {
-      this.form.timeGold.splice(index, 1)
+    async deleteTimeGold(index) {
+     const [timeGold] = this.form.timeGold.splice(index, 1)
+      console.log(timeGold)
+      if (timeGold.id) {
+        await deleteTimeGold(timeGold.id)
+      }
     },
 
     async getPlaceType() {
@@ -308,7 +431,8 @@ export default {
 
           imageDetails,
           limitUsers,
-          timeGold
+          timeGold,
+          services
         } = this.form
 
         const sendData = {
@@ -318,14 +442,15 @@ export default {
           description,
           timeClose,
           timeDistance,
-
+          services,
+          timeGold,
           imageDetails,
           limitUsers
         }
-
+        console.log(imageDetails)
         await updatePlace(this.$route.params.id, sendData)
-        this.$vmess.success('Cập nhật thành công')
-        this.$router.push('/stadium')
+        // this.$vmess.success('Cập nhật thành công')
+        // this.$router.push('/stadium')
       } catch (e) {
         this.$vmess.error(e.response.data.message)
       }

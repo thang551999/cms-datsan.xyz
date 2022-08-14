@@ -38,3 +38,11 @@ export function updatePlace(id, data) {
 export function createDayOff(data) {
   return request.post('/owner/place/day-off', data)
 }
+
+export function deleteService(id) {
+  return request.delete(`owner/place/service/${id}`)
+}
+
+export function deleteTimeGold(id) {
+  return request.delete(`owner/place/time-gold/${id}`)
+}
