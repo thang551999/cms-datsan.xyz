@@ -280,9 +280,9 @@ export default {
 
       fileList: [],
       timeOptions: {
-        start: '08:30',
-        step: '01:00',
-        end: '21:30'
+        start: '00:00',
+        step: '00:30',
+        end: '24:00'
       },
       form: {
         name: '',

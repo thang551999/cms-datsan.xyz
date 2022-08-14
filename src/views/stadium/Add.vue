@@ -253,9 +253,9 @@ export default {
 
       fileList: [],
       timeOptions: {
-        start: '05:30',
-        step: '01:00',
-        end: '22:30'
+        start: '00:00',
+        step: '00:30',
+        end: '24:00'
       },
       form: {
         typePlace: '',
