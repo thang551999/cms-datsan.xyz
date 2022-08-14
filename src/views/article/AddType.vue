@@ -14,7 +14,7 @@
 
           <el-upload
             class="upload-demo"
-            action="https://apis.datsan.xyz/upload/s3"
+            action="https://api.datsan.xyz/upload/s3"
             :file-list="fileList"
             list-type="picture"
             :auto-upload="true"
