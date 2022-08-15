@@ -53,11 +53,11 @@ export default {
           label: 'Nội dung',
           minWidth: '35'
         },
-        {
-          prop: 'star',
-          label: 'Star',
-          minWidth: '10'
-        },
+        // {
+        //   prop: 'star',
+        //   label: 'Star',
+        //   minWidth: '10'
+        // },
         {
           prop: 'created_date',
           label: 'Ngày đăng',
@@ -67,12 +67,12 @@ export default {
           prop: 'stadium',
           label: 'Sân',
           minWidth: '10'
-        },
-        {
-          prop: 'action',
-          label: this.$t('label.action'),
-          minWidth: '10'
         }
+        // {
+        //   prop: 'action',
+        //   label: this.$t('label.action'),
+        //   minWidth: '10'
+        // }
       ]
     }
   },
