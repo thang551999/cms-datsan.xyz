@@ -85,9 +85,7 @@ export default {
   },
   async created() {
     await getReportOwner().then((res) => {
-      console.log(res)
       const reports = res.data.map((report) => {
-        console.log(report)
         return {
           id: report.id,
           content: report.content,
@@ -108,9 +106,35 @@ export default {
     },
     async handleRejectReportOrder(id) {
       await rejectReportOrder(id)
+  await getReportOwner().then((res) => {
+      const reports = res.data.map((report) => {
+        return {
+          id: report.id,
+          content: report.content,
+          orderId: report.order.id,
+          email: report.order.customer?.userInfo.email,
+          fullName: report.order.customer?.userInfo.fullName,
+          phone: report.order.customer?.userInfo.phone
+        }
+      })
+        this.results = reports
+    })
     },
     async handleAcceptReportOrder(id) {
       await acceptReportOrder(id)
+        await getReportOwner().then((res) => {
+      const reports = res.data.map((report) => {
+        return {
+          id: report.id,
+          content: report.content,
+          orderId: report.order.id,
+          email: report.order.customer?.userInfo.email,
+          fullName: report.order.customer?.userInfo.fullName,
+          phone: report.order.customer?.userInfo.phone
+        }
+      })
+        this.results = reports
+    })
     }
   }
 }
